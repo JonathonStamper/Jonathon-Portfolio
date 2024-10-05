@@ -1,19 +1,26 @@
 import React from 'react'
 import { GraphQLClient, gql } from 'graphql-request'
 import { useRouter } from 'next/router'
+import SEO from '../../Components/SEO'
 
 
 
 export default function ProjectPage(props) {
   const {project} = props
   const router = useRouter()
+      {console.log(project)}
 
   return (
     <>
+     <SEO
+       TITLE ={` Jonathon Stamper - Project: ${project.projectName}`}
+       DESCRIPTION = {`This project is called ${project.projectName}`}
+       URL = {`/projects/${project.projectSlug}`}
+       KEYWORDS = {`Projects, Project, Coding, ${project.projectName}`}/>
+       
     <nav className='fixed top-0 left-0 bg-[#090515] w-screen h-[55px] z-20 opacity-70 flex items-center'> <button onClick={() => {router.back()}} className='w-8 lg:w-12 absolute left-[10%]'> <ArrowSVG/></button></nav>
     <main className='text-white bg-[#3B21A1] p'>
       {/* semi-navbar */}
-      
 
     {/* hero section */}
     <section className='relative flex justify-center w-full bg-gradient-to-t to-[#090515] from-[#3B21A1] h-screen lg:mb-20'>  

@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         'oi': ["Oi", "serif"],
         'outfit': ["Outfit", "sans-serif"],
+        'cherry' : ['Cherry Bomb One', 'system-ui']
       },
     },
   },

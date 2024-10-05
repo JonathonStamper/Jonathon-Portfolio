@@ -7,9 +7,11 @@ import { useScroll } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import Section from './Section'
 import Hero from './Hero'
+import HeroV2 from './HeroV2'
 
 export default function Interface(props) {
   const {projects} = props;
+  const {section, onSectionChange} = props
   const {page} = props
   // console.log(page)
   const scroll = useScroll()
@@ -22,11 +24,13 @@ export default function Interface(props) {
 
   // console.log('scroll offset')
   return (
-    <main className='w-screen  flex flex-col justify-center items-center text-white -z-30 px-6'>
+    <main className='w-screen  flex flex-col justify-center items-center text-white -z-30 px-'>
       <Section><div className='motion-safe:animate-bounce duration-500 absolute bottom-[10%] left-[10%] '>
         <Scrolldown/>
         </div></Section>
-      <Hero data={page.hero}/>
+      {/* <Hero data={page.hero}/> */}
+      <HeroV2 data={page.hero} onSectionChange={onSectionChange} section={section}/>
+
         <About data={page} /> 
         <Expertise data={page.expertise}/>
         <Projects projects={projects}/>

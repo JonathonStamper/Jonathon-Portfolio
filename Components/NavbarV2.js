@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import React, { useEffect, useState } from 'react'
 import {motion} from 'framer-motion'
 
-export default function Navbar(props) {
+export default function NavbarV2(props) {
   const {section, onSectionChange} = props
   
   const scroll = useScroll()
@@ -30,10 +30,10 @@ export default function Navbar(props) {
 
   return (
     <>
-    <nav className={`flex ${section >=  1? 'block' : 'hidden'} justify-between w-screen overflow- items-center  p-2 sm:p-4 px-6 z-50 transition  static  text-white bg-opacity-  overflow-y-hidden`} >
 
-      <motion.div className={`flex justify-between w-screen  items-center z-40 transition   text-white bg-opacity- `}  initial={{y: -20, opacity:  0 }} animate={{y:  section >= 1 ? 0: -20, opacity: section >= 1 ? 100: 0}}
-    transition={{ ease: "easeOut", duration: 2 }}>
+      <motion.nav className={`flex justify-between px-10 items-center z-40 transition   text-white bg-opacity- `}  initial={{y: -20, opacity:  0 }} animate={{y:  section >= 1 ? 0: -20, opacity: section >= 1 ? 100: 0}}
+    transition={{ ease: "easeOut", duration: 2 }}
+    viewport={{ once: true }}>
       <button className='font-oi w-fit' onClick={() => onSectionChange(1)}>
         <Logo/>
       </button>
@@ -58,8 +58,8 @@ export default function Navbar(props) {
       <NavButton label="Contact" onClick={() => onSectionChange(5)}></NavButton></div>
       </div>
 
-</motion.div>
-    </nav></>
+</motion.nav>
+    </>
   )
 }
 

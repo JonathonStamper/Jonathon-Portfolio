@@ -28,7 +28,7 @@ export function Model_Env(props) {
     const pLight = useRef()
     // useHelper(pLight, PointLightHelper, 0.5, "hotpink")
     return (
-      <pointLight ref={pLight} position={[0.1, 1.45, -0.85]} color={'#090C25'} intensity={25} scale={0.2}/>
+      <pointLight ref={pLight} position={[0.1, 1.45, -0.85]} color={'#090C25'} intensity={28} scale={0.2}/>
 
     )
 
