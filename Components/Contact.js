@@ -11,7 +11,7 @@ export default function Contact() {
     try {
         const myForm = event.target;
         const formData = new FormData(myForm);
-        const res = await fetch('public/contact.html', {
+        const res = await fetch('/contact.html', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString()
@@ -21,7 +21,8 @@ export default function Contact() {
             window.location.href = "/thankyou"
 
         } else {
-            console.log('the res status:', res.status)              
+            console.log('the res status:', res.status) 
+            window.location.href = "/error"
 
         }
     
