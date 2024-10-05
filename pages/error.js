@@ -3,9 +3,9 @@ import Link from "next/link";
 export default function Error() {
     return (
   <section className="w-full h-screen flex justify-center items-center bg-gradient-to-r from-[#090C25] to-[#39055D]">
-      <div className='flex justify-center  items-center flex-col'>
+      <div className='flex justify-center gap-4  items-center flex-col'>
         <h2 className='text-[34px] text-white md:text-[44px] lg:text-[56px] font-bold'>Something went wrong with the forms</h2>
-        <p>try emailing me manually: </p>
+        <p className="text-lg text-white md:text-xl lg:text-2xl font-bold">try emailing me manually: </p>
         <div className='flex gap-5 items-center flex-wrap'>
             <Link href={'https://nl.linkedin.com/in/jonathon-stamper-945b0b266'} target='_blank'><LinkedIn key={''}/></Link> 
             <Link href={`mailto:jonathon.a.stamper@gmail.com`}><Mail key={''}/></Link>
