@@ -13,6 +13,7 @@ import HeroModel from '../Components/HeroModel'
 import { GraphQLClient, gql } from 'graphql-request'
 import { AmbientLight, MeshBasicMaterial, MeshStandardMaterial, PointLightHelper } from 'three'
 import HeroModelV2 from '../Components/HeroModelV2'
+import SEO from '../Components/SEO'
 
 
 
@@ -177,6 +178,7 @@ export default function Home(props) {
 
   return (
     <>     
+    <SEO/>
 
       {/* <section  className={`overflow-hidden w-full h-screen bg-gradient-to-r from-[#090C25] to-[#39055D] `}> */}
       <section  className={`overflow-hidden w-full h-screen bg-gradient-to-r from-[#090C25] to-[#39055D] `}>

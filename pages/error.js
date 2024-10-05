@@ -1,7 +1,14 @@
 import Link from "next/link";
+import SEO from "../Components/SEO";
 
 export default function Error() {
     return (
+        <>
+        <SEO
+        TITLE = "Jonathon Stamper - something went wrong"
+        DESCRIPTION = "Something wernt wrong with the submission. try again or try contacting me through another social medium"
+        URL = "/error"
+        KEYWORDS = "Jonathon, Stamper, Jonathon Stamper, Portfolio, Software Engineer, Developer, something went wrong, contacting, form, thank you"/>
   <section className="w-full h-screen flex justify-center items-center bg-gradient-to-r from-[#090C25] to-[#39055D]">
       <div className='flex justify-center gap-4  items-center flex-col'>
         <h2 className='text-[34px] text-white md:text-[44px] lg:text-[56px] font-bold'>Something went wrong with the forms</h2>
@@ -12,7 +19,7 @@ export default function Error() {
             </div>
         <Link className="transition-all ease-in-out duration-[200ms] text-white bg-[#6C55CC] hover:bg-[#4d3c8f] px-6 py-3 w-fit rounded-md text-[16px] font-semibold active:scale-90" href="/">Back to homepage</Link>
       </div>
-    </section>  )
+    </section> </> )
   }
 
   const LinkedIn = ()=>{
