@@ -62,7 +62,7 @@ export default function Contact() {
             {/* Contact form */}
            <div className='font-oi lg:text-3xl md:text-xl text-lg lg:w-[40%] flex-col flex gap-4'>
             <h3 className='xl:text-[38px] lg:text-[30px] md:text-[28px] text-[24px] '>Contact me</h3>
-            <form name="contact" method="POST" onSubmit={handleFormSubmit} data-netlify="true" className='flex flex-col w-full text-[#656565] font-outfit gap-5 xl:text-lg lg:text-base md:text-md text-sm'>
+            <form name="contact" onSubmit={handleFormSubmit} className='flex flex-col w-full text-[#656565] font-outfit gap-5 xl:text-lg lg:text-base md:text-md text-sm'>
             <input type="hidden" name="form-name" value="contact"/>
 
 
