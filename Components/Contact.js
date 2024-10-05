@@ -4,9 +4,36 @@ import Link from 'next/link'
 
 export default function Contact() {
   const SVGList = [<GithubSVG key={''}/>, <LinkedIn key={''}/>, <Mail key={''}/>]
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    
+    try {
+        const myForm = event.target;
+        const formData = new FormData(myForm);
+        const res = await fetch('public/contact.html', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        });
+        if (res.status === 200) {
+            console.log('success ')
+            window.location.href = "/thankyou"
+
+        } else {
+            console.log('the res status:', res.status)              
+
+        }
+    
+    }
+
+    catch (e) {
+        console.log(e)
+    }
+};
+
   return (
 <Section>
-<div className='font-outfit xl:w-[1280px] lg:w-[1024px] md:w-[768px] sm:w-[640px] w-full  flex items-center justify-center relative px-6'>
         <div className='bg-black  w-full  lg:h-fit bg-gradient-to-b from-2% from-[#39055D] to-100% to-[#090C25] rounded-[30px] flex md:flex-row flex-col justify-between gap-14 p-8 md:p-10 lg:px-12 lg:py-12' >
            {/* Text section */}
            <div className='flex flex-col gap-4 w-full md:w-[45%] lg:w-[42%]'>
@@ -35,7 +62,10 @@ export default function Contact() {
             {/* Contact form */}
            <div className='font-oi lg:text-3xl md:text-xl text-lg lg:w-[40%] flex-col flex gap-4'>
             <h3 className='xl:text-[38px] lg:text-[30px] md:text-[28px] text-[24px] '>Contact me</h3>
-            <form name="contact" method="POST" data-netlify="true" className='flex flex-col w-full text-[#656565] font-outfit gap-5 xl:text-lg lg:text-base md:text-md text-sm'>
+            <form name="contact" method="POST" onSubmit={handleFormSubmit} data-netlify="true" className='flex flex-col w-full text-[#656565] font-outfit gap-5 xl:text-lg lg:text-base md:text-md text-sm'>
+            <input type="hidden" name="form-name" value="contact"/>
+
+
                 <input required type='text' name='name' placeholder='Name' className='bg-white w-full h-12 flex items-center rounded-xl p-5 '/>
                 <input  required type='email' name='email' placeholder='Email' className='bg-white w-full h-12 flex items-center rounded-xl p-5 lg:text-[16px]'/>
                 <input  required type='text' name='subject' placeholder='Subject' className='bg-white w-full h-12 flex items-center rounded-xl p-5 lg:text-[16px]'/>
@@ -49,7 +79,6 @@ export default function Contact() {
 
 
         <div className='w-[50%] top-[-240px] left-20 h-[50%] opacity-50 absolute rounded-full bg-[#516FCB] -z-20 blur-[100px] shadow-2xl	'></div>
-        </div>
     </Section>  )
 }
 

@@ -11,7 +11,8 @@ import Navbar from '../Components/Navbar'
 import { MotionConfig } from 'framer-motion'
 import HeroModel from '../Components/HeroModel'
 import { GraphQLClient, gql } from 'graphql-request'
-import { AmbientLight, PointLightHelper } from 'three'
+import { AmbientLight, MeshBasicMaterial, MeshStandardMaterial, PointLightHelper } from 'three'
+import HeroModelV2 from '../Components/HeroModelV2'
 
 
 
@@ -111,7 +112,7 @@ export default function Home(props) {
     // useHelper(ligth, PointLightHelper, 0.5, "hotpink")
     // console.log(threeText)
     return (
-      <group scale={MINMAXText} position={[Mobile === true ? screen.viewport.height * 0.2 : -0.2, -screen.viewport.height * 0.9, 0]}>
+      <group scale={MINMAXText} position={[Mobile === true ? screen.viewport.height * 0.2 : 0, -2.33, 3]}>
         {/* <group >
           <Text position={[-1.8, 0, 0]} fontSize={0.2}
             font={'Fonts/Oi-Regular.ttf'}
@@ -134,27 +135,27 @@ export default function Home(props) {
             lineHeight={0.9}
             letterSpacing={0}>my name is
           </Text>
-        </group>
+        </group> */}
 
-        <Text3D ref={threeText} receiveShadow={true} position={[-2, -0.36, 0]} rotation={[0, 0.19, 0]} size={0.17} font={'Fonts/Oi_Regular.json'}
+        <Text ref={threeText} receiveShadow={true}  position={[0, -0.36, 0]} rotation={[0, 0.02, 0]} fontSize={0.15} font={'Fonts/Cherry.ttf'}
 
           // maxWidth={[-w / 5, -h * 2, 3]}
           curveSegments={24}
           brevelSegments={1}
-
+          
           bevelThickness={0.03}
-          height={0.2}
           lineHeight={0.9}
           letterSpacing={0.01}
         >
-          Jonathon
-          <MeshTransmissionMaterial roughness={0.5} transmission={.95} ior={1.05} chromaticAberration={0.02} backside={true} thickness={1} />
+                      <meshBasicMaterial color="white"/>
 
-        </Text3D>
-        <Text
-           fontSize={0.09}
+          Jonathon Stamper
+
+        </Text>
+       <Text
+           fontSize={0.06}
           maxWidth={2}
-          position={[-0.97,-0.67,0]}
+          position={[0,-0.5,0]}
           fontWeight={500}
           curveSegments={24}
           brevelSegments={3}
@@ -163,8 +164,9 @@ export default function Home(props) {
           height={0.2}
           lineHeight={1.5}
           >
-          {homepage.hero.heroSubtext}
-          </Text> */}
+            <meshBasicMaterial color="#FFFFF"/>
+          Fullstack Developer
+          </Text>
         {/* <pointLight position={[-1, -0.3, -.4]} ref={ligth} color={'#516FCB'} scale={0.5} intensity={25} /> */}
 
       </group>
@@ -176,8 +178,10 @@ export default function Home(props) {
   return (
     <>     
 
+      {/* <section  className={`overflow-hidden w-full h-screen bg-gradient-to-r from-[#090C25] to-[#39055D] `}> */}
       <section  className={`overflow-hidden w-full h-screen bg-gradient-to-r from-[#090C25] to-[#39055D] `}>
-      	<Navbar onSectionChange={setSection} section={section}/>
+
+      	{/* <Navbar onSectionChange={setSection} section={section}/> */}
 
         <MotionConfig transition={{
           type: 'spring',
@@ -188,7 +192,9 @@ export default function Home(props) {
         }}>
 
 
-          <Canvas className={`w-full bg h-screen bg-gradient-to-r from-[#090C25] to-[#39055D]`} camera={{ fov: 30, near: 0.1, far: 1000 }}>
+          <Canvas className={`w-full bg h-screen bg-gradient-to-r from-[#151637] to-[#0D0214]`} camera={{ fov: 30, near: 0.1, far: 1000 }}>
+          {/* <Canvas className={`w-full bg h-screen bg-gradient-to-r from-[#090C25] to-[#39055D]`} camera={{ fov: 30, near: 0.1, far: 1000 }}> */}
+
             {/* <Html   prepend='false' className='center fixed'  occlude='' castShadow={true} receiveShadow={true} fullscreen > <Navbar onSectionChange={setSection} section={section}/> </Html> */}
             {/* <CameraController /> */}
             {/* <fog attach={'fog'} args={['#39055D', 3, 5]}/> */}
@@ -214,17 +220,19 @@ export default function Home(props) {
               <ScrollManager section={section} onSectionChange={setSection} />
 
               <Scroll>
-                <Texter></Texter>
+                {/* <Texter></Texter> */}
               </Scroll>
             {/* <NavbarHtml/> */}
 
               {/* Main 3d Model */}
               <Float  floatIntensity={0.2} floatingRange={0.2} rotationIntensity={0.2}>
-                <HeroModel  section={section} />
+                {/* <HeroModel  section={section} /> */}
+                <HeroModelV2  section={section} />
+
               </Float>
 
               {/* <Scroll html > */}
-              <Html onOcclude={'blending'} className='center' position={[0, 0, -6]} occlude="blending" castShadow={true} receiveShadow={true} fullscreen ><Interface projects={projects} page={homepage} /> </Html>
+              <Html onOcclude={'blending'} className='center' position={[0, 0, -6]} occlude="blending" castShadow={true} receiveShadow={true} fullscreen ><Interface onSectionChange={setSection} section={section} projects={projects} page={homepage} /> </Html>
 
               {/* </Scroll> */}
 

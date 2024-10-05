@@ -26,7 +26,7 @@ export function Solo_Model(props) {
   })
 
   return (
-      <motion.group name="Scene" dispose={null}  ref={PersonModel} >
+      <motion.group name="Scene" dispose={null}   ref={PersonModel} >
         <group name="rig"  >
           <primitive object={nodes.root} />
           <primitive object={nodes['MCH-torsoparent']} />
