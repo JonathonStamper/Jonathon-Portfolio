@@ -17,11 +17,11 @@ export default function HeroV2(props) {
         <div className='top-0 left-0 absolute w-full px-'><NavbarV2 onSectionChange={onSectionChange} section={section}/></div>
         {/* <div className='lg:w-[450px] lg:h-[450px] md:w-[350px] md:h-[350px] opacity-50 absolute left-1/3  rounded-full bg-[#9045AA] z-0 blur-[95px] shadow-2xl	'></div> */}
 
-        <div className='font-oi xl:w-[1280px]  lg:w-[1018px] md:w-[768px] sm:w-[640px] relative w-full flex flex-col justify-center gap-5 rounded-[30px] sm:flex-row items-center sm:justify-between px-12'>      
+        <div className='font-oi xl:w-[1280px]  lg:w-[1018px] md:w-[768px] sm:w-[640px] relative w-full flex flex-col justify-center gap-5 rounded-[30px] sm:flex-row items-center sm:justify-between px-2 sm:px-12'>      
 
 
         
-            <motion.div className='flex justify-center w-full flex-col xl:min-w-[585px] lg:min-w-[485px] md:w-[380px] sm:w-[320px] z-10' initial={{ x: -120 }} 
+            <motion.div className='flex justify-center w-full flex-col xl:min-w-[585px] lg:min-w-[485px] md:w-[380px] sm:w-[320px]  z-10' initial={{ x: -120 }} 
         whileInView={{ x: 0 }} transition={{duration:1, bounce:1}}>
             <div className='tracking-wide	'>
             <span className='xl:text-[56px] lg:text-[48px] md:text-[40px] text-[32px]'>
