@@ -31,21 +31,21 @@ export default function NavbarV2(props) {
   return (
     <>
 
-      <motion.nav className={`flex justify-between px-10 items-center z-40 transition   text-white bg-opacity- `}  initial={{y: -20, opacity:  0 }} animate={{y:  section >= 1 ? 0: -20, opacity: section >= 1 ? 100: 0}}
+      <motion.nav className={`flex justify-between px-5 md:px-10 items-center z-40 transition   text-white bg-opacity- `}  initial={{y: -20, opacity:  0 }} animate={{y:  section >= 1 ? 0: -20, opacity: section >= 1 ? 100: 0}}
     transition={{ ease: "easeOut", duration: 2 }}
     viewport={{ once: true }}>
       <button className='font-oi w-fit' onClick={() => onSectionChange(1)}>
         <Logo/>
       </button>
       
-      <ul className='sm:flex gap-6 hidden'>
+      <ul className='md:flex gap-6 hidden'>
       <li id=''><NavButton label="About" onClick={() => onSectionChange(2)}></NavButton></li>
       <li><NavButton label="Expertise" onClick={() => onSectionChange(3)}></NavButton></li>
       <li><NavButton label="Projects" onClick={() => onSectionChange(4)}></NavButton></li>
       <li><NavButton label="Contact" onClick={() => onSectionChange(5)}></NavButton></li>
       </ul>
 
-      <button className='block sm:hidden w-100px active:scale-90 transition-all' onClick={()=>{setClicked(!clicked)}}>
+      <button className='block md:hidden w-100px active:scale-90 transition-all' onClick={()=>{setClicked(!clicked)}}>
       <MenuButton/>
       </button>
 

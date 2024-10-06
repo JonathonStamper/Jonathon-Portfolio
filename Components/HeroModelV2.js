@@ -48,7 +48,7 @@ export default function HeroModel(){
     const mobile = window.innerWidth < 640
     const smScreen = window.innerWidth < 768 && window.innerWidth >= 640;
     const mdScreen = window.innerWidth < 1024 && window.innerWidth >= 768;
-    const lgScreen = window.innerWidth < 1280 && window.innerWidth > 1024;
+    const lgScreen = window.innerWidth < 1280 && window.innerWidth >= 1024;
     const xlScreen = window.innerWidth > 1280 
     const AvatarScalingFactor = Math.min(Math.max(viewport.width / 12, 0.5), 0.75)
     // console.log(viewportDiagonal/1280)
@@ -93,16 +93,16 @@ export default function HeroModel(){
         <Scroll className={`z-20 `}>
         
         {/* Laptop model */}
-        <motion.group position={[0 , mobile ? -1.2 : smScreen ? -1.25 : mdScreen ? -1.3 : -1.8 , 3]} rotation={[0,0 ,0]} scale={AvatarScalingFactorW}
+        <motion.group position={[0 , mobile ? -1.2 : smScreen ? -0.95 : mdScreen ? -1.3 : -1.8 , 3]} rotation={[0,0 ,0]} scale={mobile ? 0.43 : smScreen ? 0.36 : mdScreen ? 0.43 : lgScreen ? 0.8: 0.83}
         animate={'' + section} 
         variants={{1: {
           rotateY: Math.PI * -1.15,
           y: mobile ?  -viewport.height * 1.3 : smScreen ? -viewport.height * 1.2 : mdScreen ? -viewport.height * 1.2 : -viewport.height * 1.4,
-          x: mobile ? 0 : Math.min(viewport.width * 0.2, 1.2),
+          x: mobile ? 0 : mobile ? -1.2 : smScreen ? 0.4 : mdScreen ? 0.48 : lgScreen ? 1.12: 1.13,
           z: 1,
       }, 
       
-      2:{
+      2:{ 
         y:  - 1.5,
         z: 1.6,
           transition:{
@@ -180,13 +180,13 @@ export default function HeroModel(){
 
         {/* Avatar model */}
         {/* <group><Model_Env section={section}/></group> */}
-        <motion.group position={[0 , mobile ? -1.2 : smScreen ? -1.25 : mdScreen ? -1.3 : -1.8 , 3]} scale={AvatarScalingFactorW}  
+        <motion.group position={[0 , mobile ? -1.2 : smScreen ? -0.95 : mdScreen ? -1.3 : -1.8 , 3]} scale={mobile ? 0.43 : smScreen ? 0.36 : mdScreen ? 0.43 : lgScreen ? 0.8: 0.83} 
         rotation={[0,Math.PI,0]}
         animate={'' + section} 
         variants={{1: {
           rotateY: Math.PI * -0.13,
           y: mobile ?  -viewport.height *1.3 : smScreen ? -viewport.height * 1.2 : mdScreen ? -viewport.height * 1.2 : -viewport.height * 1.4,
-          x: mobile ? 0 : Math.min(viewport.width * 0.2, 1.2),
+          x: mobile ? 0 : mobile ? -1.2 : smScreen ? 0.4 : mdScreen ? 0.45 : lgScreen ? 1.12: 1.13,
           z: 1
       }, 
       
